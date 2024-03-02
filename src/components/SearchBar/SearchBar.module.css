@@ -1,15 +1,9 @@
 .header {
   width: 100%;
   display: flex;
-  /* position: absolute; */
   position: static;
   top: 0;
   justify-content: center;
   padding: 10PX 0PX;
   background-color: rgb(62, 102, 231);
 }
-
-/* .searchBarForm {
-  position: relative;
-
-} */
