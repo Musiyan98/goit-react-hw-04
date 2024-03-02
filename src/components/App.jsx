@@ -6,6 +6,7 @@ import Loader from './Loader/Loader.jsx';
 import ImageGallery from './ImageGallery/ImageGallery.jsx';
 import LoadMoreBtn from './LoadMoreBtn/LoadMoreBtn.jsx';
 import Notification from './Notification/Notification.jsx';
+import ErrorMessage from './ErrorMessage/ErrorMessage.jsx';
 import './App.css';
 
 const App = () => {
@@ -56,15 +57,13 @@ const App = () => {
   return (
     <>
       <SearchBar onSearch={searchImages} />
-      {error && (
-        <b>Looks like something went wrong. Try to restart the page or repeat your request</b>
-      )}
+      {error && <ErrorMessage />}
       {images.length > 0 && <ImageGallery images={images} />}
       {loading && <Loader />}
       {images.length > 0 && !loading && totalPage !== page && (
         <LoadMoreBtn onClick={handleLoadMore} />
       )}
-      {images.length === 0 && query !== '' && <Notification />}
+      {images.length === 0 && query !== '' && !error && !loading && <Notification />}
       <Toaster position="bottom-center" />
     </>
   );

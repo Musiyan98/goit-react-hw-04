@@ -1,3 +1,4 @@
+import css from './SearchBar.module.css';
 import toast from 'react-hot-toast';
 
 const SearchBar = ({ onSearch }) => {
@@ -14,8 +15,8 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <header>
-      <form onSubmit={handleSubmit}>
+    <header className={css.header}>
+      <form className={css.searchBarForm} onSubmit={handleSubmit}>
         <input
           type="text"
           autoComplete="off"

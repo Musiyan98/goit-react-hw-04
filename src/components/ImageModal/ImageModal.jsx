@@ -1,32 +1,25 @@
 import Modal from 'react-modal';
+import css from './ImageModal.module.css';
+import { IoMdCloseCircle } from 'react-icons/io';
 
-const customStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-  },
-};
-
-// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement('#root');
 
-const ImageModal = ({ isOpen, onClose, image, alt_description }) => {
+const ImageModal = ({ isOpen, onClose, image, alt_description, description }) => {
+  console.log(alt_description);
   return (
     <div>
       <Modal
         isOpen={isOpen}
         onRequestClose={onClose}
-        style={customStyles}
+        className={css.modal}
         contentLabel="Example Modal"
       >
-        <h2>{alt_description}</h2>
-        <button onClick={onClose}>close</button>
+        <button onClick={onClose} className={css.closeBtn}>
+          <IoMdCloseCircle className={css.closeBtnIcon} />
+        </button>
         <div>
-          <img width="200px" src={image.regular} alt={alt_description} />
+          <img className={css.image} src={image.regular} alt={alt_description} />
+          <p className={css.modalDescription}>{description} </p>
         </div>
       </Modal>
     </div>

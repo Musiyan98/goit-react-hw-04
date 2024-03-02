@@ -1,13 +1,13 @@
   .list {
     display: flex;
     gap: 10px;
-    flex-direction: column;
-    max-width: 520px;
+    flex-wrap: wrap;
     margin-right: auto;
     margin-left: auto;
   }
 
   .listItem {
+    max-width: 30%;
     list-style: none;
     padding: 05;
     margin: 0;
